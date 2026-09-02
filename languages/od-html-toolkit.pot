@@ -3,17 +3,95 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OD HTML Toolkit 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/Olein-jp/od-html-toolkit/issues\n"
-"POT-Creation-Date: 2026-09-02 00:00+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/od-html-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-02T12:29:39+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: od-html-toolkit\n"
 
+#. Plugin Name of the plugin
 #: od-html-toolkit.php
+msgid "OD HTML Toolkit"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: od-html-toolkit.php
+msgid "https://github.com/Olein-jp/od-html-toolkit"
+msgstr ""
+
+#. Description of the plugin
+#: od-html-toolkit.php
+msgid "HTML制作を支援するためのツールキットです。"
+msgstr ""
+
+#. Author of the plugin
+#: od-html-toolkit.php
+msgid "Koji Kuno"
+msgstr ""
+
+#. Author URI of the plugin
+#: od-html-toolkit.php
+msgid "https://olein-design.com"
+msgstr ""
+
+#: od-html-toolkit.php:69
 msgid "OD HTML Toolkit requires its Composer dependencies. Run composer install."
+msgstr ""
+
+#: src/index.js:109
+msgid "Block markup could not be generated. The original content was preserved."
+msgstr ""
+
+#: src/index.js:119
+#: src/index.js:275
+msgid "Insert Block Markup"
+msgstr ""
+
+#: src/index.js:128
+msgid "Block"
+msgstr ""
+
+#: src/index.js:137
+msgid "Element"
+msgstr ""
+
+#: src/index.js:147
+msgid "ID / Anchor"
+msgstr ""
+
+#: src/index.js:153
+msgid "An ID cannot contain whitespace."
+msgstr ""
+
+#: src/index.js:164
+msgid "Class"
+msgstr ""
+
+#: src/index.js:167
+msgid "Separate multiple classes with spaces."
+msgstr ""
+
+#: src/index.js:177
+msgid "Close"
+msgstr ""
+
+#: src/index.js:184
+msgid "Insert"
+msgstr ""
+
+#: src/index.js:206
+msgid "The Custom HTML editor could not be found."
+msgstr ""
+
+#: src/index.js:250
+msgid "Formatting failed. The original content was preserved."
+msgstr ""
+
+#: src/index.js:294
+msgid "Format Code"
 msgstr ""

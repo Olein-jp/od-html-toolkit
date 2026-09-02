@@ -1,0 +1,35 @@
+.od-html-toolkit-native-tools-mount {
+	display: flex;
+	order: -1;
+	margin-right: auto;
+}
+
+.od-html-toolkit-native-tools {
+	display: flex;
+	gap: 8px;
+}
+
+.od-html-toolkit-insert-form {
+	box-sizing: border-box;
+	min-width: 320px;
+	padding: 16px;
+
+	h2 {
+		margin: 0 0 16px;
+		font-size: 13px;
+	}
+
+	.components-notice {
+		margin: 0 0 16px;
+	}
+
+	.components-base-control {
+		margin-bottom: 16px;
+	}
+}
+
+.od-html-toolkit-insert-form__actions {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+}

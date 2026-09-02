@@ -11,5 +11,7 @@ package.json
 package-lock.json
 phpcs.xml
 phpcs.xml.dist
+src/
+tests/
 vendor/
 dist/

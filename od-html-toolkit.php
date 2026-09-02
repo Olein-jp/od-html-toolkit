@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/Olein-jp/od-html-toolkit
  * Description:       HTML制作を支援するためのツールキットです。
  * Version:           0.1.0
- * Requires at least: 5.9
+ * Requires at least: 7.1
  * Requires PHP:      7.4
  * Author:            Koji Kuno
  * Author URI:        https://olein-design.com
@@ -22,6 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'OD_HTML_TOOLKIT_VERSION', '0.1.0' );
 define( 'OD_HTML_TOOLKIT_FILE', __FILE__ );
+
+require_once __DIR__ . '/includes/class-editor-assets.php';
+
+$od_html_toolkit_editor_assets = new OD_HTML_Toolkit\Editor_Assets();
+$od_html_toolkit_editor_assets->register();
 
 /**
  * Load the plugin translations.

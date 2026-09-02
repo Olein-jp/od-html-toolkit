@@ -21,6 +21,18 @@ jobs:
           php-version: "7.4"
           tools: composer:v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Build editor assets
+        run: npm run build
+
       - name: Build plugin ZIP
         run: bash bin/build-release.sh "${GITHUB_REF_NAME}"
 

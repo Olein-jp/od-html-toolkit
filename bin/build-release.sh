@@ -7,6 +7,11 @@ project_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 release_tag="${1:-}"
 plugin_version="$(sed -n 's/^ \* Version:[[:space:]]*//p' "${project_root}/od-html-toolkit.php" | head -n 1)"
 
+if [[ ! -f "${project_root}/build/index.js" || ! -f "${project_root}/build/index.asset.php" ]]; then
+	echo "Build assets are missing. Run npm run build first." >&2
+	exit 1
+fi
+
 if [[ -n "${release_tag}" && "${release_tag#v}" != "${plugin_version}" ]]; then
 	echo "Release tag ${release_tag} does not match plugin version ${plugin_version}." >&2
 	exit 1
