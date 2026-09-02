@@ -1,0 +1,15 @@
+.editorconfig
+.git/
+.github/
+.gitignore
+.distignore
+.wp-env.json
+.wp-env.override.json
+bin/
+node_modules/
+package.json
+package-lock.json
+phpcs.xml
+phpcs.xml.dist
+vendor/
+dist/

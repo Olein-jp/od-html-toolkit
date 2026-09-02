@@ -1,0 +1,24 @@
+{
+  "name": "od-html-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local development environment for OD HTML Toolkit.",
+  "scripts": {
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "env:status": "wp-env status",
+    "env:logs": "wp-env logs",
+    "env:cli": "wp-env run cli wp",
+    "lint:php": "composer lint",
+    "format:php": "composer format",
+    "i18n:pot": "wp-env run cli --env-cwd=wp-content/plugins/od-html-toolkit wp i18n make-pot . languages/od-html-toolkit.pot --domain=od-html-toolkit --exclude=vendor,node_modules,dist",
+    "plugin:zip": "bash bin/build-release.sh"
+  },
+  "engines": {
+    "node": ">=18.12.0",
+    "npm": ">=8.19.2"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^11.14.0"
+  }
+}

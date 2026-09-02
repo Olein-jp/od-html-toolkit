@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset name="OD HTML Toolkit">
+	<description>WordPress Coding Standards for OD HTML Toolkit.</description>
+
+	<file>od-html-toolkit.php</file>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/dist/*</exclude-pattern>
+
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<rule ref="WordPress"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="od-html-toolkit"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>
