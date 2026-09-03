@@ -12,7 +12,7 @@ WordPress 標準のカスタム HTML ブロックへ、開発者向けのブロ�
 - 生成したマークアップをカスタム HTML の末尾へ挿入
 - Prettier によるHTML／CSS／JavaScript各タブのコード整形
 - 整形前後のWordPressブロックコメント検証と、失敗時の元データ保持
-- `setAttributes()` を使ったGutenberg標準のUndo対応
+- WordPress標準モーダルの「Update」処理を介したGutenberg標準のUndo対応
 - PHP／JavaScriptフィルターによる対象ブロック定義の拡張
 
 カスタム HTML ブロックの標準「Edit HTML」ボタンから編集モーダルを開くと、フッターに「Insert Block Markup」と「Format Code」が表示されます。生成したマークアップはHTMLタブへ挿入され、WordPress標準の「Update」を押すまでブロックへは反映されません。「Cancel」を押した場合、変更内容は破棄されます。
@@ -129,7 +129,7 @@ wp.hooks.addFilter(
 
 ## 翻訳
 
-翻訳テンプレートは `languages/od-html-toolkit.pot` です。PHP 内の翻訳対象文字列を変更した後、起動中の `wp-env` で再生成できます。
+翻訳テンプレートは `languages/od-html-toolkit.pot` です。PHPまたはJavaScript内の翻訳対象文字列を変更した後、起動中の `wp-env` で再生成できます。
 
 ```bash
 npm run i18n:pot
