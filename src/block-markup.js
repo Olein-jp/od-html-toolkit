@@ -71,16 +71,25 @@ export function createBlockMarkup( definition, values, blockApi ) {
 }
 
 /**
- * Append generated markup to the end of Custom HTML block content.
+ * Insert generated markup at the current selection in Custom HTML content.
  *
- * @param {string} content Existing content.
- * @param {string} markup  Generated markup.
+ * A non-collapsed selection is replaced, matching the native behavior of a
+ * textarea when text is inserted at its current selection.
+ *
+ * @param {string} content        Existing content.
+ * @param {string} markup         Generated markup.
+ * @param {number} selectionStart Selection start offset.
+ * @param {number} selectionEnd   Selection end offset.
  * @return {string} Updated content.
  */
-export function appendBlockMarkup( content, markup ) {
-	if ( ! content.trim() ) {
-		return markup;
-	}
+export function insertBlockMarkup(
+	content,
+	markup,
+	selectionStart,
+	selectionEnd = selectionStart
+) {
+	const start = Math.max( 0, Math.min( selectionStart, content.length ) );
+	const end = Math.max( start, Math.min( selectionEnd, content.length ) );
 
-	return `${ content.trimEnd() }\n\n${ markup }`;
+	return `${ content.slice( 0, start ) }${ markup }${ content.slice( end ) }`;
 }

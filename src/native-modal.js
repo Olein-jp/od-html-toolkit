@@ -51,9 +51,10 @@ export async function getNativeModalEditor( modal, requestedTabId = null ) {
  *
  * @param {HTMLTextAreaElement} textarea Editor textarea.
  * @param {string}              value    New value.
+ * @param {number|null}         cursor   Cursor offset after the update.
  * @return {void}
  */
-export function setNativeModalEditorValue( textarea, value ) {
+export function setNativeModalEditorValue( textarea, value, cursor = null ) {
 	const editorWindow = textarea.ownerDocument.defaultView;
 	const valueSetter = Object.getOwnPropertyDescriptor(
 		editorWindow.HTMLTextAreaElement.prototype,
@@ -68,4 +69,9 @@ export function setNativeModalEditorValue( textarea, value ) {
 	textarea.dispatchEvent(
 		new editorWindow.Event( 'input', { bubbles: true } )
 	);
+
+	if ( Number.isInteger( cursor ) ) {
+		textarea.focus();
+		textarea.setSelectionRange( cursor, cursor );
+	}
 }

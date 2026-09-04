@@ -1,7 +1,7 @@
 import {
-	appendBlockMarkup,
 	buildAttributes,
 	createBlockMarkup,
+	insertBlockMarkup,
 	isValidAnchor,
 	normalizeClassName,
 } from '../../src/block-markup';
@@ -58,9 +58,21 @@ describe( 'block markup helpers', () => {
 		);
 	} );
 
-	test( 'appends markup after two newlines', () => {
-		expect( appendBlockMarkup( '<div>Existing</div>\n', '<p></p>' ) ).toBe(
-			'<div>Existing</div>\n\n<p></p>'
+	test( 'inserts markup at the cursor position', () => {
+		expect( insertBlockMarkup( '<div></div>', '<p></p>', 5, 5 ) ).toBe(
+			'<div><p></p></div>'
+		);
+	} );
+
+	test( 'replaces the current selection with markup', () => {
+		expect(
+			insertBlockMarkup( '<div>Replace me</div>', '<p></p>', 5, 15 )
+		).toBe( '<div><p></p></div>' );
+	} );
+
+	test( 'clamps selection offsets to the content range', () => {
+		expect( insertBlockMarkup( 'HTML', '<p></p>', 99, 120 ) ).toBe(
+			'HTML<p></p>'
 		);
 	} );
 } );

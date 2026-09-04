@@ -23,8 +23,8 @@ import { addFilter, applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
 import {
-	appendBlockMarkup,
 	createBlockMarkup,
+	insertBlockMarkup,
 	isValidAnchor,
 } from './block-markup';
 import { formatCode, validateFormattedCode } from './format-code';
@@ -66,12 +66,19 @@ function getSupportedBlocks() {
  *
  * @param {Object}        props             Props.
  * @param {string}        props.content     Current HTML editor content.
+ * @param {Object}        props.selection   Current HTML editor selection.
  * @param {Array<Object>} props.definitions Supported block definitions.
  * @param {Function}      props.onClose     Close the form.
  * @param {Function}      props.onInsert    Update the HTML editor.
  * @return {Element} Form component.
  */
-function InsertBlockForm( { content, definitions, onClose, onInsert } ) {
+function InsertBlockForm( {
+	content,
+	selection,
+	definitions,
+	onClose,
+	onInsert,
+} ) {
 	const [ blockName, setBlockName ] = useState(
 		definitions[ 0 ]?.name || ''
 	);
@@ -102,7 +109,14 @@ function InsertBlockForm( { content, definitions, onClose, onInsert } ) {
 				throw new Error( 'empty-block-markup' );
 			}
 
-			await onInsert( appendBlockMarkup( content, markup ) );
+			const nextContent = insertBlockMarkup(
+				content,
+				markup,
+				selection.start,
+				selection.end
+			);
+
+			await onInsert( nextContent, selection.start + markup.length );
 			onClose();
 		} catch {
 			setError(
@@ -198,6 +212,10 @@ function InsertBlockForm( { content, definitions, onClose, onInsert } ) {
  */
 function NativeModalTools( { definitions, mountTarget } ) {
 	const [ htmlContent, setHtmlContent ] = useState( '' );
+	const [ htmlSelection, setHtmlSelection ] = useState( {
+		start: 0,
+		end: 0,
+	} );
 	const [ isFormatting, setIsFormatting ] = useState( false );
 	const { createErrorNotice } = useDispatch( 'core/notices' );
 
@@ -218,17 +236,25 @@ function NativeModalTools( { definitions, mountTarget } ) {
 			const modal = getModal();
 			const { textarea } = await getNativeModalEditor( modal, 'html' );
 			setHtmlContent( textarea.value );
+			setHtmlSelection( {
+				start: textarea.selectionStart,
+				end: textarea.selectionEnd,
+			} );
 			onToggle();
 		} catch {
 			showEditorError();
 		}
 	};
 
-	const insertIntoHtmlEditor = async ( nextContent ) => {
+	const insertIntoHtmlEditor = async ( nextContent, cursorPosition ) => {
 		const modal = getModal();
 		const { textarea } = await getNativeModalEditor( modal, 'html' );
-		setNativeModalEditorValue( textarea, nextContent );
+		setNativeModalEditorValue( textarea, nextContent, cursorPosition );
 		setHtmlContent( nextContent );
+		setHtmlSelection( {
+			start: cursorPosition,
+			end: cursorPosition,
+		} );
 	};
 
 	const formatActiveEditor = async () => {
@@ -278,6 +304,7 @@ function NativeModalTools( { definitions, mountTarget } ) {
 					renderContent={ ( { onClose } ) => (
 						<InsertBlockForm
 							content={ htmlContent }
+							selection={ htmlSelection }
 							definitions={ definitions }
 							onClose={ onClose }
 							onInsert={ insertIntoHtmlEditor }

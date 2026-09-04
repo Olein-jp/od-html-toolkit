@@ -33,4 +33,15 @@ describe( 'native Custom HTML modal helpers', () => {
 		expect( textarea.value ).toBe( '<p>Generated</p>' );
 		expect( onInput ).toHaveBeenCalledTimes( 1 );
 	} );
+
+	test( 'restores the cursor after updating the native editor', () => {
+		const textarea = document.createElement( 'textarea' );
+		document.body.append( textarea );
+
+		setNativeModalEditorValue( textarea, '<p>Generated</p>', 3 );
+
+		expect( textarea.selectionStart ).toBe( 3 );
+		expect( textarea.selectionEnd ).toBe( 3 );
+		expect( document.activeElement ).toBe( textarea );
+	} );
 } );
