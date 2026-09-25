@@ -1,6 +1,6 @@
 {
   "name": "od-html-toolkit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "Local development environment for OD HTML Toolkit.",
   "scripts": {

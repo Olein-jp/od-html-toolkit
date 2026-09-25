@@ -118,6 +118,18 @@ class Editor_Assets {
 				'name'   => 'core/spacer',
 				'fields' => array( 'anchor', 'className' ),
 			),
+			array(
+				'name'   => 'core/site-logo',
+				'fields' => array( 'anchor', 'className' ),
+			),
+			array(
+				'name'   => 'core/site-title',
+				'fields' => array( 'anchor', 'className' ),
+			),
+			array(
+				'name'   => 'core/navigation',
+				'fields' => array( 'anchor', 'className' ),
+			),
 		);
 
 		/**
