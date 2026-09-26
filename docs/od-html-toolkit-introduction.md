@@ -17,10 +17,10 @@ OD HTML Toolkit は、WordPress 標準のカスタム HTML ブロックへ、次
 - WordPress ブロックマークアップの生成
 - HTML、CSS、JavaScript のコード整形
 
-2026年9月25日時点の最新バージョンは `0.1.2` です。GitHub でソースコードと配布用 ZIP を公開しています。
+2026年9月26日時点の最新バージョンは `0.1.3` です。GitHub でソースコードと配布用 ZIP を公開しています。
 
 - [OD HTML Toolkit の GitHub リポジトリ](https://github.com/Olein-jp/od-html-toolkit)
-- [OD HTML Toolkit v0.1.2](https://github.com/Olein-jp/od-html-toolkit/releases/tag/v0.1.2)
+- [OD HTML Toolkit v0.1.3](https://github.com/Olein-jp/od-html-toolkit/releases/tag/v0.1.3)
 
 WordPress.org のプラグインディレクトリでは公開していないため、現時点では GitHub Releases からインストールします。
 
@@ -61,7 +61,7 @@ OD HTML Toolkit を有効化すると、標準モーダルの下部に次のボ�
 
 「Insert Block Markup」を押すと、挿入するブロックと属性を選択できます。
 
-バージョン `0.1.2` では、次のコアブロックに対応しています。
+バージョン `0.1.3` では、次のコアブロックに対応しています。
 
 | ブロック | 指定できる項目 |
 |---|---|
@@ -125,7 +125,7 @@ HTML タブを整形する場合は、処理の前後で WordPress のブロッ�
 
 通常の WordPress サイトへインストールする場合は、GitHub の Release に添付されている `od-html-toolkit.zip` を利用します。
 
-1. [OD HTML Toolkit v0.1.2](https://github.com/Olein-jp/od-html-toolkit/releases/tag/v0.1.2)を開く
+1. [OD HTML Toolkit v0.1.3](https://github.com/Olein-jp/od-html-toolkit/releases/tag/v0.1.3)を開く
 2. Assets から `od-html-toolkit.zip` をダウンロードする
 3. WordPress 管理画面の「プラグイン」→「プラグインを追加」を開く
 4. 「プラグインのアップロード」を押す
@@ -146,7 +146,7 @@ OD HTML Toolkit には、[`inc2734/wp-github-plugin-updater`](https://github.com
 
 ### WordPress 7.1以降が必要
 
-OD HTML Toolkit `0.1.2` では、WordPress 7.1以降、PHP 7.4以降を動作条件として設定しています。
+OD HTML Toolkit `0.1.3` では、WordPress 7.1以降、PHP 7.4以降を動作条件として設定しています。
 
 カスタム HTML ブロックの HTML、CSS、JavaScript を分けた編集画面自体は、WordPress 7.0から導入されています。ただし、現在のプラグインは WordPress 7.1を前提として開発・配布しています。[WordPress のカスタム HTML ブロックに関する公式説明](https://wordpress.org/documentation/article/custom-html/)
 
@@ -178,7 +178,7 @@ OD HTML Toolkit は、カスタム HTML ブロック内でコードを扱いな�
 
 現時点の WordPress には、カスタム HTML ブロックの標準モーダルへ第三者のボタンを追加するための公開された拡張 API がありません。
 
-そのため、OD HTML Toolkit `0.1.2` では、標準モーダルの構造を検出してボタンを追加しています。WordPress 側でモーダルの構造が変わった場合は、プラグイン側でも調整が必要になる可能性があります。
+そのため、OD HTML Toolkit `0.1.3` では、標準モーダルの構造を検出してボタンを追加しています。WordPress 側でモーダルの構造が変わった場合は、プラグイン側でも調整が必要になる可能性があります。
 
 利用時には、WordPress とプラグインを更新した後、カスタム HTML ブロックの編集画面が問題なく開くか確認してください。
 
@@ -197,7 +197,7 @@ OD HTML Toolkit は、WordPress 標準のカスタム HTML ブロックを置き
 ## 参考リンク
 
 - [OD HTML Toolkit — GitHub](https://github.com/Olein-jp/od-html-toolkit)
-- [OD HTML Toolkit v0.1.2](https://github.com/Olein-jp/od-html-toolkit/releases/tag/v0.1.2)
+- [OD HTML Toolkit v0.1.3](https://github.com/Olein-jp/od-html-toolkit/releases/tag/v0.1.3)
 - [Custom HTML — WordPress.org Documentation](https://wordpress.org/documentation/article/custom-html/)
 - [Custom HTML — Block Editor Handbook](https://developer.wordpress.org/block-editor/reference-guides/core-blocks/core-blocks-widgets/core-block-html/)
 - [WordPress 7.1 — Make WordPress Core](https://make.wordpress.org/core/7-1/)

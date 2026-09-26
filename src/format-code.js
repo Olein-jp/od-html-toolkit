@@ -57,7 +57,7 @@ export async function formatCode( content, parser = 'html' ) {
 		],
 		printWidth: 100,
 		tabWidth: 2,
-		useTabs: true,
+		useTabs: false,
 	} );
 }
 

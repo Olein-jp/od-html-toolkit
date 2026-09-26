@@ -11,16 +11,28 @@ describe( 'format code helpers', () => {
 		);
 
 		expect( formatted ).toContain( '<div><p>Hello</p></div>' );
-		expect( formatted ).toContain( '\t.foo {\n\t\tcolor: red;\n\t}' );
+		expect( formatted ).toContain( '  .foo {\n    color: red;\n  }' );
 		expect( formatted ).toContain( 'const a = 1;' );
+		expect( formatted ).not.toContain( '\t' );
 	} );
 
 	test( 'formats CSS and JavaScript modal tabs independently', async () => {
 		const css = await formatCode( '.foo{color:red}', 'css' );
 		const js = await formatCode( 'const answer=42;', 'babel' );
 
-		expect( css ).toBe( '.foo {\n\tcolor: red;\n}\n' );
+		expect( css ).toBe( '.foo {\n  color: red;\n}\n' );
 		expect( js ).toBe( 'const answer = 42;\n' );
+	} );
+
+	test( 'indents nested HTML with two spaces', async () => {
+		const formatted = await formatCode(
+			'<div><section><p>Text</p></section></div>'
+		);
+
+		expect( formatted ).toBe(
+			'<div>\n  <section><p>Text</p></section>\n</div>\n'
+		);
+		expect( formatted ).not.toContain( '\t' );
 	} );
 
 	test( 'normalizes JSON whitespace in block comment signatures', () => {

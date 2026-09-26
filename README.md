@@ -41,7 +41,7 @@ WordPress 標準のカスタム HTML ブロックへ、開発者向けのブロ�
 2. 編集モーダル下部の「Format Code」を押します。
 3. 整形結果を確認し、WordPress標準の「Update」を押します。
 
-HTMLタブではWordPressブロックコメントが整形前後で維持されることを検証します。検証または整形に失敗した場合は元のコードを維持し、エラー通知を表示します。
+HTML／CSS／JavaScriptは半角スペース2つでインデントします。HTMLタブではWordPressブロックコメントが整形前後で維持されることを検証します。検証または整形に失敗した場合は元のコードを維持し、エラー通知を表示します。
 
 初期状態では以下のブロックに対応します。
 
@@ -145,8 +145,8 @@ npm run i18n:pot
 プラグイン本体の `Version` と同じ SemVer のタグを、先頭に `v` を付けて push します。
 
 ```bash
-git tag v0.1.2
-git push origin v0.1.2
+git tag v0.1.3
+git push origin v0.1.3
 ```
 
 GitHub Actions が依存ライブラリを本番構成で含む `od-html-toolkit.zip` を生成し、GitHub Release を作成します。インストール済みプラグインは `inc2734/wp-github-plugin-updater` を通じて最新 Release を検出し、WordPress 管理画面から更新できます。
