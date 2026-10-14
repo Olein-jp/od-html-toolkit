@@ -90,10 +90,15 @@ function InsertBlockForm( {
 	const definition = definitions.find( ( item ) => item.name === blockName );
 	const fields = definition?.fields || [];
 	const anchorIsValid = isValidAnchor( anchor );
-	const options = definitions.map( ( item ) => ( {
-		label: getBlockType( item.name )?.title || item.name,
-		value: item.name,
-	} ) );
+	const options = definitions.map( ( item ) => {
+		const title = getBlockType( item.name )?.title || item.name;
+		const label =
+			item.name === 'core/buttons' || item.name === 'core/button'
+				? `${ title } (${ item.name.slice( 'core/'.length ) })`
+				: title;
+
+		return { label, value: item.name };
+	} );
 
 	const insertMarkup = async () => {
 		setError( '' );
